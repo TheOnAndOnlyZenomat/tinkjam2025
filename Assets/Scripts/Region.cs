@@ -1,13 +1,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-class Region {
-	public int index { get; }
+public class Region : MonoBehaviour {
 	List<Status> statuse { get; set; }
 	List<int> enemies { get; set; }
 
-	public Region(int index, Status[] statuse = null, int[] enemies = null) {
-		this.index = index;
+	public Grid grid {get; set; }
+
+	bool unsetActiveRegion = false;
+
+	public void init(Status[] statuse = null, int[] enemies = null) {
+		this.grid = GetComponent<Grid>();
 		if (statuse is null) {
 			this.statuse = new List<Status>();
 		} else {
@@ -21,7 +24,7 @@ class Region {
 		}
 	}
 
-	public void Update(float delta) {
+	public void Tick(float delta) {
 		List<int> to_remove = new List<int>();
 		for (int i = 0; i < this.statuse.Count; i++) {
 			var status = this.statuse[i];
@@ -39,7 +42,7 @@ class Region {
 	public override string ToString() {
 		string out_str = "{ ";
 
-		out_str += $"index = {this.index}; ";
+		out_str += $"region = {this.grid.name}; ";
 		out_str += "statuse = [";
 		for (int i = 0; i < this.statuse.Count; i++) {
 			out_str += statuse[i].ToString();
@@ -69,56 +72,18 @@ class Region {
 	public void AddEnemy(int enemy) {
 		this.enemies.Add(enemy);
 	}
-}
 
-public class MapManager : MonoBehaviour
-{
-
-	public int regionCount = 6;
-	private Region[] regions;
-
-	void Start()
-	{
-		Debug.Log("Initializing MapManager");
-
-		Region[] regions = new Region[this.regionCount];
-
-		for (int i = 0; i < this.regionCount; i++) {
-			regions[i] = new Region(i);
-		}
-
-		this.regions = regions;
-
-		Debug.Log("regions:");
-
-		foreach(Region region in this.regions) {
-			Debug.Log(region.ToString());
-		}
-
-		this.regions[0].ApplyStatus(new Status("test_status"));
-
-		Debug.Log(this.regions[0].ToString());
-
-		InitDebug();
+	public void OnMouseEnter() {
+		Debug.Log("Mouse enter");
+		MapManager.Instance.SetActiveRegion(this);
+		this.unsetActiveRegion = false;
 	}
 
-	void Update()
-	{
-		float delta = Time.deltaTime;
-
-		foreach (Region region in this.regions) {
-			region.Update(delta);
+	public void OnMouseExit() {
+		Debug.Log("Mouse exit");
+		if (!this.unsetActiveRegion) {
+			MapManager.Instance.SetActiveRegion(null);
+			this.unsetActiveRegion = true;
 		}
-	}
-
-	private void InitDebug() {
-		foreach (Region region in this.regions) {
-			region.AddEnemy(0);
-			region.ApplyStatus(new Status("test_status", false, 2, 2));
-		}
-	}
-
-	public void ApplyStatus(int index, Status status) {
-		this.regions[index].ApplyStatus(status);
 	}
 }
