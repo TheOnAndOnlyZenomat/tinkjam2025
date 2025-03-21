@@ -165,26 +165,26 @@ MonoBehaviour:
   - m_EditModeType: 1
     m_Knots:
     - Position:
-        x: -5
-        y: -4
+        x: -8
+        y: -3.5
         z: 0
       TangentIn:
         x: -0
         y: -0
-        z: -0.50990194
+        z: -0.8
       TangentOut:
         x: 0
         y: 0
-        z: 0.50990194
+        z: 0.8
       Rotation:
         value:
-          x: 0.4482979
-          y: 0.5468354
-          z: 0.5468355
-          w: 0.44829783
+          x: 0.50000006
+          y: 0.49999994
+          z: 0.50000006
+          w: 0.49999994
     - Position:
         x: 0
-        y: -3
+        y: -3.5
         z: 0
       TangentIn:
         x: 0
@@ -201,23 +201,23 @@ MonoBehaviour:
           z: 0.5
           w: 0.5
     - Position:
-        x: 5
-        y: -4
+        x: 8
+        y: -3.5
         z: 0
       TangentIn:
         x: -0
         y: -0
-        z: -0.50990194
+        z: -0.8
       TangentOut:
         x: 0
         y: 0
-        z: 0.50990194
+        z: 0.8
       Rotation:
         value:
-          x: 0.5468355
-          y: 0.44829783
-          z: 0.4482979
-          w: 0.5468354
+          x: 0.50000006
+          y: 0.49999994
+          z: 0.50000006
+          w: 0.49999994
     m_MetaData:
     - Mode: 0
       Tension: 0.5
@@ -523,7 +523,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba50ddcae6cc4834986e8c04912e5c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHandsize: 10
+  _maxHandsize: 8
   _cardPrefab: {fileID: 6660855730468012403, guid: cf748bb8f2547d148bc99786192dfb2f, type: 3}
   _splineContainer: {fileID: 561521338}
   _spawnPoint: {fileID: 598063265}

@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
@@ -11,10 +12,27 @@ public class HandManager : MonoBehaviour
     [SerializeField] private SplineContainer _splineContainer;
     [SerializeField] private Transform _spawnPoint;
     private List<GameObject> _handcards = new();
+    private bool _canDraw = true;
+
+    private void Start()
+    {
+        
+    }
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space)) DrawCard();
+        if (_handcards.Count < _maxHandsize && _canDraw)
+        {
+            StartCoroutine(DrawCardDelay());
+        }
+    }
+
+    private IEnumerator DrawCardDelay()
+    {
+        _canDraw = false;
+        DrawCard();
+        yield return new WaitForSeconds(5);
+        _canDraw = true;
     }
 
     private void DrawCard()
@@ -29,7 +47,7 @@ public class HandManager : MonoBehaviour
     {
         if (_handcards.Count == 0) return;
         float cardSpacing = 1f / _maxHandsize;
-        float _firstCardPosition = 0.5f - (_handcards.Count -1) *cardSpacing / 2;
+        float _firstCardPosition = 0.5f - (_handcards.Count -1) * cardSpacing /2 ;
         Spline spline = _splineContainer.Spline;
         for (int i = 0; i < _handcards.Count; i++)
         {
@@ -38,7 +56,7 @@ public class HandManager : MonoBehaviour
             Vector3 forward = spline.EvaluateTangent(p);
             Vector3 up = spline.EvaluateUpVector(p);
             Quaternion rotation = Quaternion.LookRotation(up,Vector3.Cross(up, forward).normalized);
-            _handcards[i].transform.DOMove(splinePostion, 0.25f);
+            _handcards[i].transform.DOMove(splinePostion, 0.5f);
             _handcards[i].transform.DOLocalRotateQuaternion(rotation, 0.25f);
         }
 
