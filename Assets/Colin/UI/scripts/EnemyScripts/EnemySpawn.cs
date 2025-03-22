@@ -34,7 +34,6 @@ public class EnemySpawn : MonoBehaviour
         Enemy randomEnemy = enemies [GetRandomEnemyIndex ()];
 
         Instantiate (randomEnemy.Prefab, this.spawnPoints [spawnPoints].position, this.spawnPoints [spawnPoints].rotation);
-        Debug.Log (randomEnemy.Chance);
     }
 
     private int GetRandomEnemyIndex() {
