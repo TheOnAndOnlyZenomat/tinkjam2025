@@ -27,4 +27,8 @@ public class PauseManager : MonoBehaviour
             isPaused = false;
         }
     }
+
+    public void ExitGame() {
+        Application.Quit();
+    }
 }
