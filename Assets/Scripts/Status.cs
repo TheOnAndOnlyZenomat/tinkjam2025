@@ -13,9 +13,9 @@ public class Status : MonoBehaviour {
 	[SerializeField]
 	public List<string> createdBy = new List<string>(2);
 
-	public void ApplyToEnemies(int[] enemies) {
-		foreach (int enemy in enemies) {
-			Debug.Log($"Oneshot applying effect \"{this.statusName}\" to enemy with id {enemy}");
+	public void ApplyToEnemies(GameObject[] enemies) {
+		foreach (GameObject enemy in enemies) {
+			Debug.Log($"Oneshot applying effect \"{this.statusName}\" to enemy with name {enemy.name}");
 			ApplyDamageToEnemy(enemy);
 		}
 
@@ -23,11 +23,11 @@ public class Status : MonoBehaviour {
 	}
 
 	/// returns whether or not to remove the status from the region
-	public bool ApplyToEnemies(float delta, int[] enemies) {
+	public bool ApplyToEnemies(float delta, GameObject[] enemies) {
 		this.current_periode += delta;
 		if (this.current_periode >= this.periode) {
-			foreach (int enemy in enemies) {
-				Debug.Log($"Applying effect \"{this.statusName}\" to enemy with id {enemy}, last execution was {delta} ago");
+			foreach (GameObject enemy in enemies) {
+				Debug.Log($"Applying effect \"{this.statusName}\" to enemy with name {enemy.name}, last execution was {delta} ago");
 				ApplyDamageToEnemy(enemy);
 			}
 
@@ -68,5 +68,5 @@ public class Status : MonoBehaviour {
 		return created;
 	}
 
-	public virtual void ApplyDamageToEnemy(int enemy) {}
+	public virtual void ApplyDamageToEnemy(GameObject enemy) {}
 }

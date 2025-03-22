@@ -30,7 +30,6 @@ public class MapManager : MonoBehaviour
 		for (int i = 0; i < this.regions.Length; i++) {
 			this.regions[i] = regions[i];
 			this.regions[i].init();
-			this.regions[i].AddEnemy(1);
 		}
 	}
 

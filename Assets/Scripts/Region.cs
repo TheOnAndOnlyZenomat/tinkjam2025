@@ -3,11 +3,11 @@ using UnityEngine;
 
 public class Region : MonoBehaviour {
 	List<Status> statuse { get; set; }
-	List<int> enemies { get; set; }
+	List<GameObject> enemies { get; set; }
 
 	public Grid grid {get; set; }
 
-	public void init(Status[] statuse = null, int[] enemies = null) {
+	public void init(Status[] statuse = null, GameObject[] enemies = null) {
 		this.grid = GetComponent<Grid>();
 		if (statuse is null) {
 			this.statuse = new List<Status>();
@@ -16,9 +16,9 @@ public class Region : MonoBehaviour {
 		}
 
 		if (enemies is null) {
-			this.enemies = new List<int>();
+			this.enemies = new List<GameObject>();
 		} else {
-			this.enemies = new List<int>(enemies);
+			this.enemies = new List<GameObject>(enemies);
 		}
 	}
 
@@ -67,8 +67,12 @@ public class Region : MonoBehaviour {
 		}
 	}
 
-	public void AddEnemy(int enemy) {
+	public void AddEnemy(GameObject enemy) {
 		this.enemies.Add(enemy);
+	}
+
+	public void RemoveEnemy(GameObject enemy) {
+		this.enemies.Remove(enemy);
 	}
 
 	public void OnMouseEnter() {
@@ -77,6 +81,18 @@ public class Region : MonoBehaviour {
 
 	public void OnMouseExit() {
 		MapManager.Instance.SetActiveRegion(null);
+	}
+
+	public void OnTriggerEnter2D(Collider2D other) {
+		if (other.gameObject.tag == "Enemy") {
+			this.AddEnemy(other.gameObject);
+		}
+	}
+
+	public void OnTriggerExit2D(Collider2D other) {
+		if (other.gameObject.tag == "Enemy") {
+			this.RemoveEnemy(other.gameObject);
+		}
 	}
 
 	public void Highlight(bool active) {
