@@ -9,6 +9,7 @@ public class PauseManager : MonoBehaviour
 
 
     public void PauseGame(InputAction.CallbackContext context) {
+		Debug.Log("pausing game");
         if (isPaused == false) {
             pauseMenu.SetActive(true);
             Time.timeScale = 0;
