@@ -1,11 +1,10 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-
 public class SceneChanger : MonoBehaviour
 {
     public void StartGame() {
-        SceneManager.LoadScene("TimerScene");
+        SceneManager.LoadSceneAsync("main");
     }
 
     public void ExitGame() {
