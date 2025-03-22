@@ -61,15 +61,9 @@ public class Status : MonoBehaviour {
 				foreach (Status status in statuse) {
 					statusNames.Add(status.statusName);
 				}
-				Debug.Log("statusNames:");
-				statusNames.ForEach(Debug.Log);
-				Debug.Log("createdBy:");
-				this.createdBy.ForEach(Debug.Log);
 				created = Helpers.ContainsAll(this.createdBy.ToArray(), statusNames.ToArray());
 			}
 		}
-
-		Debug.Log($"{this.statusName}: {created}");
 
 		return created;
 	}

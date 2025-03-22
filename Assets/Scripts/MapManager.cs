@@ -30,13 +30,7 @@ public class MapManager : MonoBehaviour
 		for (int i = 0; i < this.regions.Length; i++) {
 			this.regions[i] = regions[i];
 			this.regions[i].init();
-		}
-
-		Debug.Log("regions:");
-
-		foreach(Region region in this.regions) {
-			Debug.Log(region.ToString());
-			region.AddEnemy(1);
+			this.regions[i].AddEnemy(1);
 		}
 	}
 
@@ -74,7 +68,6 @@ public class MapManager : MonoBehaviour
 		for (int i = 0; i < statuse.Length; i++) {
 			GameObject obj = Instantiate(this.cardPool[i]);
 			statuse[i] = obj.GetComponent<Transform>().Find("Status").GetComponent<Status>();
-			Debug.Log($"checking status {statuse[i].statusName}");
 		}
 
 		foreach (Status status in statuse) {
