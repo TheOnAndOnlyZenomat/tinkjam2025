@@ -1,12 +1,15 @@
+using System.Collections.Generic;
 using UnityEngine;
 
-public class Status {
-	public string name = "";
+public class Status : MonoBehaviour {
 	public bool oneshot { get; } = true;
 
 	public int ticks {get; set; } = 5;
 	float current_periode {get; set; } = 0;
 	public int periode {get; set; } = 0;
+
+	[SerializeField]
+	public List<Status> createdBy = new List<Status>(2);
 
 	public void ApplyToEnemies(int[] enemies) {
 		foreach (int enemy in enemies) {
@@ -24,8 +27,6 @@ public class Status {
 
 			this.ticks--;
 			this.current_periode = 0;
-
-			Debug.Log(this.ToString());
 
 			if (this.ticks <= 0) {
 				return true;
@@ -48,5 +49,20 @@ public class Status {
 
 	public override string ToString() {
 		return $"{{ {this.name}; oneshot = {this.oneshot}; ticks = {this.ticks}; periode = {this.periode}; current_periode = {this.current_periode}; }}";
+	}
+
+	public bool IsCreatedBy(Status[] statuse) {
+		bool created = false;
+		if (statuse.Length == 1) {
+			for (int i = 0; i < statuse.Length; i++) {
+				if (statuse[i] == this) created = true;
+			}
+		} else {
+			created = Helpers.ContainsAll(this.createdBy.ToArray(), statuse);
+		}
+
+		Debug.Log($"{this.name}: {created}");
+
+		return created;
 	}
 }
