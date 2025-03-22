@@ -33051,6 +33051,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 304132014607208256, guid: 1aa101a7897835444a5b086facf02fd4, type: 3}
+      propertyPath: CardBurn
+      value: 
+      objectReference: {fileID: 8300000, guid: fa8d0c97f1ec5df4b9fc875ee5d36afd, type: 3}
+    - target: {fileID: 304132014607208256, guid: 1aa101a7897835444a5b086facf02fd4, type: 3}
+      propertyPath: CardDraw
+      value: 
+      objectReference: {fileID: 8300000, guid: 7d7e915cc0c115c45bc9ef2aef2cd358, type: 3}
     - target: {fileID: 1878081738568547877, guid: 1aa101a7897835444a5b086facf02fd4, type: 3}
       propertyPath: m_Name
       value: Audio Manager SFX

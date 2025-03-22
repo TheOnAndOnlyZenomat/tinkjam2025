@@ -52,6 +52,8 @@ public class AudioManager : MonoBehaviour
     public AudioClip Feuerschaden;
     public AudioClip Nass;
     public AudioClip Vergiftet;
+    public AudioClip CardDraw;
+    public AudioClip CardBurn;
 
     private void Start()
     {
@@ -209,5 +211,15 @@ public class AudioManager : MonoBehaviour
     {
         Debug.Log("playing poisen");
         SFXSource.PlayOneShot(this.Vergiftet, 1);
+    }
+    public void PlayCardDraw()
+    {
+        Debug.Log("playing poisen");
+        SFXSource.PlayOneShot(this.CardDraw, 1);
+    }
+        public void PlayCardBurn()
+    {
+        Debug.Log("playing poisen");
+        SFXSource.PlayOneShot(this.CardBurn, 1);
     }
 }
