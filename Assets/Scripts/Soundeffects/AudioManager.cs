@@ -2,6 +2,19 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
+	public static AudioManager Instance { get; private set; }
+
+	private void Awake()
+	{
+		if (Instance != null && Instance != this)
+		{
+			Debug.Log("AudioManager instance was not me, destroying");
+			Destroy(this.gameObject);
+		} else {
+			Instance = this;
+		}
+	}
+
     [Header("---------- Audio Source ---------")]
     [SerializeField] AudioSource SFXSource;
     [SerializeField] AudioSource MusikSource;
@@ -37,13 +50,15 @@ public class AudioManager : MonoBehaviour
     public AudioClip Feuerschaden;
     public AudioClip Nass;
     public AudioClip Vergiftet;
-    
-
 
     private void Start()
     {
         MusikSource.clip = Background;
-;       MusikSource.Play();
-
+		MusikSource.Play();
     }
+
+	public void PlayRegen() {
+		Debug.Log("playing rain");
+		SFXSource.PlayOneShot(this.Regen, 1);
+	}
 }

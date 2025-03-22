@@ -42772,7 +42772,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1ed7858be4b84e43a60395eae3f06bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxTime: 5
+  MaxTime: 300
   gameOverText: {fileID: 1765156453}
   timerText: {fileID: 2081339985}
 --- !u!114 &2081339985 stripped
