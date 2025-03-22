@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
@@ -80,22 +79,24 @@ public class HandManager : MonoBehaviour
 
     }
 
-    public bool AddActiveCard(Status status)
-    {
-        Debug.Log("adding Card");
+	public enum CardAddStatus {
+		Added,
+		Removed,
+		Failed,
+	}
 
+    public CardAddStatus AddActiveCard(Status status)
+    {
 		if (this._activeCards.Contains(status)) {
-			Debug.Log("deselecting Card");
 			this._activeCards.Remove(status);
-			return true;
+			return CardAddStatus.Removed;
 		}
 
         if (this._activeCards.Count >= this._activeCards.Capacity)
         {
-            Debug.Log("adding card ging nicht");
-            return false;
+			return CardAddStatus.Failed;
         }
         this._activeCards.Add(status);
-        return true;
+		return CardAddStatus.Added;
     }
 }

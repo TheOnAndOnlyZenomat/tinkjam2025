@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-using TMPro.EditorUtilities;
 using UnityEngine;
 
 public class Card : MonoBehaviour
@@ -18,7 +16,17 @@ public class Card : MonoBehaviour
 
     public void OnMouseDown()
     {
-        Debug.Log("Mouse press funzt");
-        HandManager.Instance.AddActiveCard(this.status);
+        HandManager.CardAddStatus status = HandManager.Instance.AddActiveCard(this.status);
+		switch (status) {
+			case HandManager.CardAddStatus.Added:
+				transform.localScale += new Vector3(2, 2, 0);
+				break;
+			case HandManager.CardAddStatus.Removed:
+				transform.localScale -= new Vector3(2, 2, 0);
+				break;
+			case HandManager.CardAddStatus.Failed:
+				Debug.Log("My adding failed");
+				break;
+		}
     }
 }
