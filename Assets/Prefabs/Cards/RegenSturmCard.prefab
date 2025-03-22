@@ -112,7 +112,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 2.73, y: -5.31}
+  m_AnchoredPosition: {x: 2.24, y: -1.44}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6773693126721503976
@@ -143,7 +143,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Kalter Wind
+  m_text: Regen Sturm
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -208,7 +208,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 5.459913, w: 7.3003345}
+  m_margin: {x: 0, y: 0, z: 4.478355, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -348,7 +348,7 @@ GameObject:
   - component: {fileID: 7369928283708238264}
   - component: {fileID: 8319905644921558754}
   m_Layer: 0
-  m_Name: KalterWindCard
+  m_Name: RegenSturmCard
   m_TagString: Card
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -484,7 +484,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19aa3d80ce4a56f4784a78263dea83c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  status: {fileID: 5847692783504802384}
+  status: {fileID: 7549661651174880874}
 --- !u!1 &8526761167623409735
 GameObject:
   m_ObjectHideFlags: 0
@@ -494,7 +494,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8483388203230012408}
-  - component: {fileID: 5847692783504802384}
+  - component: {fileID: 7549661651174880874}
   m_Layer: 0
   m_Name: Status
   m_TagString: status
@@ -517,7 +517,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1452107907612412282}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5847692783504802384
+--- !u!114 &7549661651174880874
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -526,7 +526,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 8526761167623409735}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7580dd5a59dc824a8685259db0cd207, type: 3}
+  m_Script: {fileID: 11500000, guid: 0afa3029539106744a68d2b0dbe67fd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  createdBy: []
+  createdBy:
+  - Regen
+  - warmer Wind
