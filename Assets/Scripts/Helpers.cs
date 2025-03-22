@@ -15,4 +15,14 @@ public static class Helpers {
 		}
 		return taggedGameObjects;
 	}
+
+	public static bool ContainsAll<T>(T[] first, T[] contains) {
+		List<T> list = new List<T>(first);
+
+		foreach (T contain in contains) {
+			if (!list.Contains(contain)) return false;
+		}
+
+		return true;
+	}
 }
