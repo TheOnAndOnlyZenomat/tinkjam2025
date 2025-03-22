@@ -8,8 +8,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Cards/CardData.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Cards/CardView.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/CardStatuse/WarmerWindStatus.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Cards/HandManager.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -88,6 +87,9 @@
       <workItem from="1742569879916" duration="4642000" />
       <workItem from="1742588776673" duration="300000" />
       <workItem from="1742602869185" duration="3868000" />
+      <workItem from="1742673535511" duration="499000" />
+      <workItem from="1742674050197" duration="4000" />
+      <workItem from="1742674078467" duration="1000" />
     </task>
     <servers />
   </component>
