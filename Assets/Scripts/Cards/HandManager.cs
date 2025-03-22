@@ -39,6 +39,7 @@ public class HandManager : MonoBehaviour
     {
         if (_handcards.Count >= _maxHandsize) return;
         GameObject g = Instantiate(_cardPrefab, _spawnPoint.position, _spawnPoint.rotation);
+        g.transform.parent = gameObject.transform;
         _handcards.Add(g);
         UpdateCardPosition();
     }
@@ -52,11 +53,13 @@ public class HandManager : MonoBehaviour
         for (int i = 0; i < _handcards.Count; i++)
         {
             float p = _firstCardPosition + i * cardSpacing;
-            Vector3 splinePostion = spline.EvaluatePosition(p);
+            Vector3 splinePosition = spline.EvaluatePosition(p);
+            splinePosition.z = -2;
             Vector3 forward = spline.EvaluateTangent(p);
+            forward.z = 0;
             Vector3 up = spline.EvaluateUpVector(p);
             Quaternion rotation = Quaternion.LookRotation(up,Vector3.Cross(up, forward).normalized);
-            _handcards[i].transform.DOMove(splinePostion, 0.5f);
+            _handcards[i].transform.DOMove(splinePosition, 0.5f);
             _handcards[i].transform.DOLocalRotateQuaternion(rotation, 0.25f);
         }
 
