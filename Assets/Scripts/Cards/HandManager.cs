@@ -99,4 +99,13 @@ public class HandManager : MonoBehaviour
         this._activeCards.Add(status);
 		return CardAddStatus.Added;
     }
+
+	public void PlayActiveCards() {
+		foreach (Status status in this._activeCards) {
+			GameObject parent = status.transform.parent.gameObject;
+			this._handcards.Remove(status.transform.parent.gameObject);
+			Destroy(parent);
+		}
+		this._activeCards.Clear();
+	}
 }

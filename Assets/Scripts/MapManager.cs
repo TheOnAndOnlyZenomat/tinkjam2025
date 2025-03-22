@@ -73,6 +73,7 @@ public class MapManager : MonoBehaviour
 		foreach (Status status in statuse) {
 			if (status.IsCreatedBy(activeStatuse)) {
 				this.activeRegion.ApplyStatus(status);
+				HandManager.Instance.PlayActiveCards();
 			} else {
 				Destroy(status.transform.parent.gameObject);
 			}
