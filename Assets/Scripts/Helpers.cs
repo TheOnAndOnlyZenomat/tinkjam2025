@@ -15,4 +15,35 @@ public static class Helpers {
 		}
 		return taggedGameObjects;
 	}
+
+	private class ContainsAllHelper<T> {
+		public T elem;
+		public bool met;
+
+		public ContainsAllHelper(T elem, bool met) {
+			this.elem = elem;
+			this.met = met;
+		}
+	}
+
+	public static bool ContainsAll<T>(T[] first, T[] contains) {
+		List<ContainsAllHelper<T>> list = new List<ContainsAllHelper<T>>();
+		foreach (T f in first) {
+			list.Add(new ContainsAllHelper<T>(f, false));
+		}
+
+		foreach(ContainsAllHelper<T> l in list) {
+			foreach(T c in contains) {
+				if (l.elem.Equals(c)) {
+					l.met = true;
+				}
+			}
+		}
+
+		foreach(ContainsAllHelper<T> l in list) {
+			if (!l.met) return false;
+		}
+
+		return true;
+	}
 }

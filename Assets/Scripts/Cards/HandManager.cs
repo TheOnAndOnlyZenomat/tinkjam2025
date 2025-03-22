@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
@@ -8,12 +7,12 @@ using UnityEngine.Splines;
 public class HandManager : MonoBehaviour
 {
     [SerializeField] private int _maxHandsize;
-    [SerializeField] private GameObject _cardPrefab;
     [SerializeField] private SplineContainer _splineContainer;
     [SerializeField] private Transform _spawnPoint;
+	[SerializeField] private List<Card> spawnPool;
     private List<GameObject> _handcards = new();
     private bool _canDraw = true;
-    private List<GameObject> _activeCards = new List<GameObject>(2);
+    [SerializeField] public List<Status> _activeCards { get; private set; } = new List<Status>(2);
     public static HandManager Instance { get; private set; }
     
     private void Awake()
@@ -51,7 +50,9 @@ public class HandManager : MonoBehaviour
     private void DrawCard()
     {
         if (_handcards.Count >= _maxHandsize) return;
-        GameObject g = Instantiate(_cardPrefab, _spawnPoint.position, _spawnPoint.rotation);
+		System.Random rng = new System.Random();
+		Card toSpawn = this.spawnPool[rng.Next(0, this.spawnPool.Count)];
+        GameObject g = Instantiate(toSpawn.gameObject, _spawnPoint.position, _spawnPoint.rotation);
         g.transform.parent = gameObject.transform;
         _handcards.Add(g);
         UpdateCardPosition();
@@ -78,15 +79,33 @@ public class HandManager : MonoBehaviour
 
     }
 
-    public bool AddActiveCard(GameObject o)
+	public enum CardAddStatus {
+		Added,
+		Removed,
+		Failed,
+	}
+
+    public CardAddStatus AddActiveCard(Status status)
     {
-        Debug.Log("adding Card");
+		if (this._activeCards.Contains(status)) {
+			this._activeCards.Remove(status);
+			return CardAddStatus.Removed;
+		}
+
         if (this._activeCards.Count >= this._activeCards.Capacity)
         {
-            Debug.Log("adding card ging nicht");
-            return false;
+			return CardAddStatus.Failed;
         }
-        this._activeCards.Add(o);
-        return true;
+        this._activeCards.Add(status);
+		return CardAddStatus.Added;
     }
+
+	public void PlayActiveCards() {
+		foreach (Status status in this._activeCards) {
+			GameObject parent = status.transform.parent.gameObject;
+			this._handcards.Remove(status.transform.parent.gameObject);
+			Destroy(parent);
+		}
+		this._activeCards.Clear();
+	}
 }

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - region
   - Card
+  - status
   layers:
   - Default
   - TransparentFX

@@ -7,6 +7,8 @@ public class MapManager : MonoBehaviour
 	private Region[] regions;
 	private Region activeRegion = null;
 
+	[SerializeField] public GameObject[] cardPool;
+
 	private void Awake()
 	{
 		if (Instance != null && Instance != this)
@@ -28,12 +30,7 @@ public class MapManager : MonoBehaviour
 		for (int i = 0; i < this.regions.Length; i++) {
 			this.regions[i] = regions[i];
 			this.regions[i].init();
-		}
-
-		Debug.Log("regions:");
-
-		foreach(Region region in this.regions) {
-			Debug.Log(region.ToString());
+			this.regions[i].AddEnemy(1);
 		}
 	}
 
@@ -45,13 +42,6 @@ public class MapManager : MonoBehaviour
 		}
 	}
 
-	private void InitDebug() {
-		foreach (Region region in this.regions) {
-			region.AddEnemy(0);
-			region.ApplyStatus(new Status("test_status", false, 2, 2));
-		}
-	}
-
 	public void ApplyStatus(int index, Status status) {
 		this.regions[index].ApplyStatus(status);
 	}
@@ -59,12 +49,34 @@ public class MapManager : MonoBehaviour
 	public void SetActiveRegion(Region region) {
 		if (region is null) {
 			this.activeRegion.Highlight(false);
-			this.activeRegion = region;
+			this.activeRegion = null;
 
 			return;
 		}
 
 		this.activeRegion = region;
 		this.activeRegion.Highlight(true);
+	}
+
+	public void OnMousePress() {
+		if (this.activeRegion is null) return;
+
+		Status[] activeStatuse = HandManager.Instance._activeCards.ToArray();
+		if (activeStatuse.Length == 0) return;
+
+		Status[] statuse = new Status[this.cardPool.Length];
+		for (int i = 0; i < statuse.Length; i++) {
+			GameObject obj = Instantiate(this.cardPool[i]);
+			statuse[i] = obj.GetComponent<Transform>().Find("Status").GetComponent<Status>();
+		}
+
+		foreach (Status status in statuse) {
+			if (status.IsCreatedBy(activeStatuse)) {
+				this.activeRegion.ApplyStatus(status);
+				HandManager.Instance.PlayActiveCards();
+			} else {
+				Destroy(status.transform.parent.gameObject);
+			}
+		}
 	}
 }
