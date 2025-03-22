@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class MapManager : MonoBehaviour
@@ -6,6 +7,9 @@ public class MapManager : MonoBehaviour
 
 	private Region[] regions;
 	private Region activeRegion = null;
+
+	[SerializeField]
+	public List<Status> debugSelected = new List<Status>(2); 
 
 	private void Awake()
 	{
@@ -34,6 +38,7 @@ public class MapManager : MonoBehaviour
 
 		foreach(Region region in this.regions) {
 			Debug.Log(region.ToString());
+			region.AddEnemy(1);
 		}
 	}
 
@@ -66,5 +71,24 @@ public class MapManager : MonoBehaviour
 
 		this.activeRegion = region;
 		this.activeRegion.Highlight(true);
+	}
+
+	public void OnMousePress() {
+		Debug.Log("OnMousePress in MapManager");
+
+		GameObject[] status_objects = GameObject.FindGameObjectsWithTag("status");
+		Status[] statuse = new Status[status_objects.Length];
+		for (int i = 0; i < statuse.Length; i++) {
+			statuse[i] = status_objects[i].GetComponent<Status>();
+		}
+
+		/* Status[] activeStatuse = HandManager.Instance._activeCards.ToArray(); */
+		Status[] activeStatuse = this.debugSelected.ToArray();
+
+		foreach (Status status in statuse) {
+			if (status.IsCreatedBy(activeStatuse)) {
+				this.activeRegion.ApplyStatus(status);
+			}
+		}
 	}
 }

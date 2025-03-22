@@ -13,7 +13,7 @@ public class HandManager : MonoBehaviour
     [SerializeField] private Transform _spawnPoint;
     private List<GameObject> _handcards = new();
     private bool _canDraw = true;
-    private List<GameObject> _activeCards = new List<GameObject>(2);
+    public List<GameObject> _activeCards { get; private set; } = new List<GameObject>(2);
     public static HandManager Instance { get; private set; }
     
     private void Awake()
