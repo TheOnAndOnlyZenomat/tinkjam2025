@@ -7,8 +7,6 @@ public class Region : MonoBehaviour {
 
 	public Grid grid {get; set; }
 
-	bool unsetActiveRegion = false;
-
 	public void init(Status[] statuse = null, int[] enemies = null) {
 		this.grid = GetComponent<Grid>();
 		if (statuse is null) {
@@ -74,16 +72,14 @@ public class Region : MonoBehaviour {
 	}
 
 	public void OnMouseEnter() {
-		Debug.Log("Mouse enter");
 		MapManager.Instance.SetActiveRegion(this);
-		this.unsetActiveRegion = false;
 	}
 
 	public void OnMouseExit() {
-		Debug.Log("Mouse exit");
-		if (!this.unsetActiveRegion) {
-			MapManager.Instance.SetActiveRegion(null);
-			this.unsetActiveRegion = true;
-		}
+		MapManager.Instance.SetActiveRegion(null);
+	}
+
+	public void Highlight(bool active) {
+		transform.Find("outline").GetComponent<Renderer>().enabled = active;
 	}
 }
