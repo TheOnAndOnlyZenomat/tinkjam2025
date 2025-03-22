@@ -48,16 +48,25 @@ public class Status : MonoBehaviour {
 
 	public bool IsCreatedBy(Status[] statuse) {
 		bool created = false;
+
 		if (statuse.Length == 1) {
 			for (int i = 0; i < statuse.Length; i++) {
 				if (statuse[i].statusName == this.statusName) created = true;
 			}
 		} else {
-			List<string> statusNames = new List<string>();
-			foreach (Status status in statuse) {
-				statusNames.Add(status.statusName);
+			if (this.createdBy.Count == 0) {
+				created = false;
+			} else {
+				List<string> statusNames = new List<string>();
+				foreach (Status status in statuse) {
+					statusNames.Add(status.statusName);
+				}
+				Debug.Log("statusNames:");
+				statusNames.ForEach(Debug.Log);
+				Debug.Log("createdBy:");
+				this.createdBy.ForEach(Debug.Log);
+				created = Helpers.ContainsAll(this.createdBy.ToArray(), statusNames.ToArray());
 			}
-			created = Helpers.ContainsAll(this.createdBy.ToArray(), statusNames.ToArray());
 		}
 
 		Debug.Log($"{this.statusName}: {created}");
