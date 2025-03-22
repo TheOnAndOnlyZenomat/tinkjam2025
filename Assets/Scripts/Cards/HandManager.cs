@@ -13,6 +13,19 @@ public class HandManager : MonoBehaviour
     [SerializeField] private Transform _spawnPoint;
     private List<GameObject> _handcards = new();
     private bool _canDraw = true;
+    private List<GameObject> _activeCards = new List<GameObject>(2);
+    public static HandManager Instance { get; private set; }
+    
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Debug.Log("HandManager instance was not me, destroying");
+            Destroy(this.gameObject);
+        } else {
+            Instance = this;
+        }
+    }
 
     private void Start()
     {
@@ -63,5 +76,17 @@ public class HandManager : MonoBehaviour
             _handcards[i].transform.DOLocalRotateQuaternion(rotation, 0.25f);
         }
 
+    }
+
+    public bool AddActiveCard(GameObject o)
+    {
+        Debug.Log("adding Card");
+        if (this._activeCards.Count >= this._activeCards.Capacity)
+        {
+            Debug.Log("adding card ging nicht");
+            return false;
+        }
+        this._activeCards.Add(o);
+        return true;
     }
 }

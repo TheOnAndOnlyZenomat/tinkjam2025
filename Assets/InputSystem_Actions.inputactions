@@ -224,6 +224,17 @@
                     "action": "Crouch",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3ec615a9-0989-4316-96f6-58a1a9cfff99",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "MousePress",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
