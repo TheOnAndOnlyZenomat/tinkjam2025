@@ -26,8 +26,9 @@ public class Card : MonoBehaviour
         }
     }
 
-    public void OnMousePress()
+    public void OnMouseDown()
     {
-       
+        Debug.Log("Mouse press funzt");
+        HandManager.Instance.AddActiveCard(gameObject);
     }
 }
