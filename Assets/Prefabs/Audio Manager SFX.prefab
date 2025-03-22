@@ -49,6 +49,36 @@ MonoBehaviour:
   SFXSource: {fileID: 1880427996950947515}
   MusikSource: {fileID: 3588518206676235494}
   Background: {fileID: 8300000, guid: 1e3734ed21f324e46820b042613ba0bd, type: 3}
+  Regen: {fileID: 8300000, guid: eca9dbb64cc31604eb25a1d9c7ad4448, type: 3}
+  kalterWind: {fileID: 8300000, guid: 58da20d7204cb9a4399f1f31d6d1fd6d, type: 3}
+  warmerWind: {fileID: 8300000, guid: 58da20d7204cb9a4399f1f31d6d1fd6d, type: 3}
+  Kiesel: {fileID: 8300000, guid: aaf66b852fd244f4e966e8a7290ce867, type: 3}
+  Matsch: {fileID: 8300000, guid: fe58b62529b08b442b2a758a7b5d3131, type: 3}
+  Regensturm: {fileID: 8300000, guid: 86dd64863ec202345a8eb470dbed4421, type: 3}
+  Schnee: {fileID: 8300000, guid: 820793d09450bdb48b3fa275857f7da5, type: 3}
+  Sturm: {fileID: 8300000, guid: 50b4ff170a5685b4d800b607df457f33, type: 3}
+  Treibsand: {fileID: 8300000, guid: 9bbf05b507adbc045937bc22b6c97053, type: 3}
+  Steinschlag: {fileID: 8300000, guid: 29dbe02899b27974dab4535f2ca4c4bc, type: 3}
+  Monsun: {fileID: 8300000, guid: 20de3f6f663361245a2bca86445489ec, type: 3}
+  Schneematsch: {fileID: 8300000, guid: 542d2e72289720b4b81182456a49184c, type: 3}
+  Matschsturtm: {fileID: 8300000, guid: 50b4ff170a5685b4d800b607df457f33, type: 3}
+  Flut: {fileID: 8300000, guid: 401d4164f8f62614dbae67911b0792bd, type: 3}
+  Schneesturm: {fileID: 8300000, guid: a7575e2f754f5984283e1914d13fe1b8, type: 3}
+  Sandsturm: {fileID: 8300000, guid: faeef306c962c944d8ddda1b96c6e096, type: 3}
+  Sanduhr: {fileID: 8300000, guid: d5f6e52007e680c4c88b0a8440eff4ba, type: 3}
+  Erdbeben: {fileID: 8300000, guid: 3b011d93070a76842bf515d24e383024, type: 3}
+  SchneebaelleVomSchuhlhof: {fileID: 8300000, guid: 820793d09450bdb48b3fa275857f7da5, type: 3}
+  Erdrutsch: {fileID: 8300000, guid: 3b011d93070a76842bf515d24e383024, type: 3}
+  Windhose: {fileID: 8300000, guid: d1c08a935c132c84b9ae10a37b5312fc, type: 3}
+  Tsunamie: {fileID: 8300000, guid: 401d4164f8f62614dbae67911b0792bd, type: 3}
+  Eissturm: {fileID: 8300000, guid: 45005891157d26b40bd61c2f866743a1, type: 3}
+  Reset: {fileID: 8300000, guid: d5f6e52007e680c4c88b0a8440eff4ba, type: 3}
+  Hagelsturm: {fileID: 8300000, guid: 1096b2d656fed12429670a0be69ea187, type: 3}
+  ErdbebenMitDerStaerke10: {fileID: 8300000, guid: 3b011d93070a76842bf515d24e383024, type: 3}
+  Tornado: {fileID: 8300000, guid: 5c3d80c505f104543b89d64c38bea386, type: 3}
+  Feuerschaden: {fileID: 8300000, guid: aaa8fc448de252b4893d3ec33cea3341, type: 3}
+  Nass: {fileID: 8300000, guid: eca9dbb64cc31604eb25a1d9c7ad4448, type: 3}
+  Vergiftet: {fileID: 8300000, guid: 1d55d9ad2c7c3cc4785a61ff2fa54a53, type: 3}
 --- !u!1 &4431620039078605398
 GameObject:
   m_ObjectHideFlags: 0
