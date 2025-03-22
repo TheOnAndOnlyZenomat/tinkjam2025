@@ -4,7 +4,7 @@ public class HagelsturmStatus : Status
 {
 	public override string statusName { get; } = "Hagelsturm";
 
-	public override void ApplyDamageToEnemy(int enemy) {
+	public override void ApplyDamageToEnemy(GameObject enemy) {
 		Debug.Log("Hagelsturm is applying damage");
 	}
 }
