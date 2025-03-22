@@ -8,6 +8,8 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/CardStatuse/SteinschlagStatus.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/CardStatuse/SturmStatus.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CardStatuse/WarmerWindStatus.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Cards/HandManager.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -90,6 +92,8 @@
       <workItem from="1742673535511" duration="499000" />
       <workItem from="1742674050197" duration="4000" />
       <workItem from="1742674078467" duration="1000" />
+      <workItem from="1742679732662" duration="288000" />
+      <workItem from="1742680172577" duration="540000" />
     </task>
     <servers />
   </component>
