@@ -83,6 +83,13 @@ public class HandManager : MonoBehaviour
     public bool AddActiveCard(Status status)
     {
         Debug.Log("adding Card");
+
+		if (this._activeCards.Contains(status)) {
+			Debug.Log("deselecting Card");
+			this._activeCards.Remove(status);
+			return true;
+		}
+
         if (this._activeCards.Count >= this._activeCards.Capacity)
         {
             Debug.Log("adding card ging nicht");
