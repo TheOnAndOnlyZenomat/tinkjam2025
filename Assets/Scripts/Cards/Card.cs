@@ -25,4 +25,9 @@ public class Card : MonoBehaviour
             effect.Perform();
         }
     }
+
+    public void OnMousePress()
+    {
+       
+    }
 }
