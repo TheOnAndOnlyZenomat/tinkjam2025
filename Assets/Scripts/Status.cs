@@ -2,6 +2,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Status : MonoBehaviour {
+	public virtual string statusName { get; }
+
 	public bool oneshot { get; } = true;
 
 	public int ticks {get; set; } = 5;
@@ -9,12 +11,15 @@ public class Status : MonoBehaviour {
 	public int periode {get; set; } = 0;
 
 	[SerializeField]
-	public List<Status> createdBy = new List<Status>(2);
+	public List<string> createdBy = new List<string>(2);
 
 	public void ApplyToEnemies(int[] enemies) {
 		foreach (int enemy in enemies) {
-			Debug.Log($"Oneshot applying effect \"{this.name}\" to enemy with id {enemy}");
+			Debug.Log($"Oneshot applying effect \"{this.statusName}\" to enemy with id {enemy}");
+			ApplyDamageToEnemy(enemy);
 		}
+
+		Destroy(transform.parent.gameObject);
 	}
 
 	/// returns whether or not to remove the status from the region
@@ -22,7 +27,8 @@ public class Status : MonoBehaviour {
 		this.current_periode += delta;
 		if (this.current_periode >= this.periode) {
 			foreach (int enemy in enemies) {
-				Debug.Log($"Applying effect \"{this.name}\" to enemy with id {enemy}, last execution was {delta} ago");
+				Debug.Log($"Applying effect \"{this.statusName}\" to enemy with id {enemy}, last execution was {delta} ago");
+				ApplyDamageToEnemy(enemy);
 			}
 
 			this.ticks--;
@@ -36,33 +42,28 @@ public class Status : MonoBehaviour {
 		return false;
 	}
 
-	public Status(string name) {
-		this.name = name;
-	}
-
-	public Status(string name, bool oneshot, int ticks, int periode) {
-		this.name = name;
-		this.oneshot = oneshot;
-		this.ticks = ticks;
-		this.periode = periode;
-	}
-
 	public override string ToString() {
-		return $"{{ {this.name}; oneshot = {this.oneshot}; ticks = {this.ticks}; periode = {this.periode}; current_periode = {this.current_periode}; }}";
+		return $"{{ {this.statusName}; oneshot = {this.oneshot}; ticks = {this.ticks}; periode = {this.periode}; current_periode = {this.current_periode}; }}";
 	}
 
 	public bool IsCreatedBy(Status[] statuse) {
 		bool created = false;
 		if (statuse.Length == 1) {
 			for (int i = 0; i < statuse.Length; i++) {
-				if (statuse[i] == this) created = true;
+				if (statuse[i].statusName == this.statusName) created = true;
 			}
 		} else {
-			created = Helpers.ContainsAll(this.createdBy.ToArray(), statuse);
+			List<string> statusNames = new List<string>();
+			foreach (Status status in statuse) {
+				statusNames.Add(status.statusName);
+			}
+			created = Helpers.ContainsAll(this.createdBy.ToArray(), statusNames.ToArray());
 		}
 
-		Debug.Log($"{this.name}: {created}");
+		Debug.Log($"{this.statusName}: {created}");
 
 		return created;
 	}
+
+	public virtual void ApplyDamageToEnemy(int enemy) {}
 }

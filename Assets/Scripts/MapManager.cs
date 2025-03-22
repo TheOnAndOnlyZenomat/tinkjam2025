@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 public class MapManager : MonoBehaviour
 {
@@ -8,8 +9,7 @@ public class MapManager : MonoBehaviour
 	private Region[] regions;
 	private Region activeRegion = null;
 
-	[SerializeField]
-	public List<Status> debugSelected = new List<Status>(2); 
+	[SerializeField] public GameObject[] cardPool;
 
 	private void Awake()
 	{
@@ -50,13 +50,6 @@ public class MapManager : MonoBehaviour
 		}
 	}
 
-	private void InitDebug() {
-		foreach (Region region in this.regions) {
-			region.AddEnemy(0);
-			region.ApplyStatus(new Status("test_status", false, 2, 2));
-		}
-	}
-
 	public void ApplyStatus(int index, Status status) {
 		this.regions[index].ApplyStatus(status);
 	}
@@ -64,7 +57,7 @@ public class MapManager : MonoBehaviour
 	public void SetActiveRegion(Region region) {
 		if (region is null) {
 			this.activeRegion.Highlight(false);
-			this.activeRegion = region;
+			this.activeRegion = null;
 
 			return;
 		}
@@ -74,20 +67,23 @@ public class MapManager : MonoBehaviour
 	}
 
 	public void OnMousePress() {
-		Debug.Log("OnMousePress in MapManager");
+		if (this.activeRegion is null) return;
 
-		GameObject[] status_objects = GameObject.FindGameObjectsWithTag("status");
-		Status[] statuse = new Status[status_objects.Length];
+		Status[] activeStatuse = HandManager.Instance._activeCards.ToArray();
+		if (activeStatuse.Length == 0) return;
+
+		Status[] statuse = new Status[this.cardPool.Length];
 		for (int i = 0; i < statuse.Length; i++) {
-			statuse[i] = status_objects[i].GetComponent<Status>();
+			GameObject obj = Instantiate(this.cardPool[i]);
+			statuse[i] = obj.GetComponent<Transform>().Find("Status").GetComponent<Status>();
+			Debug.Log($"checking status {statuse[i].statusName}");
 		}
-
-		/* Status[] activeStatuse = HandManager.Instance._activeCards.ToArray(); */
-		Status[] activeStatuse = this.debugSelected.ToArray();
 
 		foreach (Status status in statuse) {
 			if (status.IsCreatedBy(activeStatuse)) {
 				this.activeRegion.ApplyStatus(status);
+			} else {
+				Destroy(status.transform.parent.gameObject);
 			}
 		}
 	}

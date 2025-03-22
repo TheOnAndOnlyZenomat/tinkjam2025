@@ -8,12 +8,12 @@ using UnityEngine.Splines;
 public class HandManager : MonoBehaviour
 {
     [SerializeField] private int _maxHandsize;
-    [SerializeField] private GameObject _cardPrefab;
     [SerializeField] private SplineContainer _splineContainer;
     [SerializeField] private Transform _spawnPoint;
+	[SerializeField] private List<Card> spawnPool;
     private List<GameObject> _handcards = new();
     private bool _canDraw = true;
-    public List<GameObject> _activeCards { get; private set; } = new List<GameObject>(2);
+    [SerializeField] public List<Status> _activeCards { get; private set; } = new List<Status>(2);
     public static HandManager Instance { get; private set; }
     
     private void Awake()
@@ -51,7 +51,9 @@ public class HandManager : MonoBehaviour
     private void DrawCard()
     {
         if (_handcards.Count >= _maxHandsize) return;
-        GameObject g = Instantiate(_cardPrefab, _spawnPoint.position, _spawnPoint.rotation);
+		System.Random rng = new System.Random();
+		Card toSpawn = this.spawnPool[rng.Next(0, this.spawnPool.Count)];
+        GameObject g = Instantiate(toSpawn.gameObject, _spawnPoint.position, _spawnPoint.rotation);
         g.transform.parent = gameObject.transform;
         _handcards.Add(g);
         UpdateCardPosition();
@@ -78,7 +80,7 @@ public class HandManager : MonoBehaviour
 
     }
 
-    public bool AddActiveCard(GameObject o)
+    public bool AddActiveCard(Status status)
     {
         Debug.Log("adding Card");
         if (this._activeCards.Count >= this._activeCards.Capacity)
@@ -86,7 +88,7 @@ public class HandManager : MonoBehaviour
             Debug.Log("adding card ging nicht");
             return false;
         }
-        this._activeCards.Add(o);
+        this._activeCards.Add(status);
         return true;
     }
 }
