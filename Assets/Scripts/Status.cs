@@ -2,13 +2,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Status : MonoBehaviour {
-	public virtual string statusName { get; }
+	public virtual string statusName { get; } = "Default";
 
-	public bool oneshot { get; } = true;
+	public virtual bool oneshot { get; } = true;
+	public virtual bool globalStatus { get; } = false;
 
-	public int ticks {get; set; } = 5;
-	float current_periode {get; set; } = 0;
-	public int periode {get; set; } = 0;
+	public virtual int ticks {get; set; }
+	public float current_periode {get; private set; } = 0;
+	public virtual int periode {get; set; }
 
 	[SerializeField]
 	public List<string> createdBy = new List<string>(2);
@@ -50,9 +51,7 @@ public class Status : MonoBehaviour {
 		bool created = false;
 
 		if (statuse.Length == 1) {
-			for (int i = 0; i < statuse.Length; i++) {
-				if (statuse[i].statusName == this.statusName) created = true;
-			}
+			if (statuse[0].statusName == this.statusName) created = true;
 		} else {
 			if (this.createdBy.Count == 0) {
 				created = false;

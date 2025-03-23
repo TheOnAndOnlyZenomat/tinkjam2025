@@ -4,7 +4,10 @@ public class KieselStatus : Status
 {
 	public override string statusName { get; } = "Kiesel";
 
+	[SerializeField] private int damage = 5;
+
 	public override void ApplyDamageToEnemy(GameObject enemy) {
-		Debug.Log("Kiesel is applying damage");
+		AudioManager.Instance.PlayKieseln();
+		enemy.GetComponent<EnemyStats>().Damage(this.damage);
 	}
 }

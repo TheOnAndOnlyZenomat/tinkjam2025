@@ -4,7 +4,7 @@ public class MapManager : MonoBehaviour
 {
 	public static MapManager Instance { get; private set; }
 
-	private Region[] regions;
+	public Region[] regions { get; private set; }
 	private Region activeRegion = null;
 
 	[SerializeField] public GameObject[] cardPool;
@@ -65,7 +65,8 @@ public class MapManager : MonoBehaviour
 
 		Status[] statuse = new Status[this.cardPool.Length];
 		for (int i = 0; i < statuse.Length; i++) {
-			GameObject obj = Instantiate(this.cardPool[i]);
+			GameObject obj = Instantiate(this.cardPool[i], new Vector3(0, 0, 2), Quaternion.identity);
+			obj.SetActive(false);
 			statuse[i] = obj.GetComponent<Transform>().Find("Status").GetComponent<Status>();
 		}
 
