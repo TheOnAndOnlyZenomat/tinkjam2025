@@ -172,7 +172,9 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Deathhound-GIft_0: -8872214917884998936
+      Deathhound-GIft_1: 309004182211613884
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

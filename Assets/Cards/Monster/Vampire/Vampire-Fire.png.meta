@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Vampire-Fire_0: -8572966624745687943
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Vampire-Ice_0: -2834305080092123725
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
