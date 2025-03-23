@@ -147,12 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-<<<<<<< HEAD
     nameFileIdTable:
       Sanduhr__0: 2992100460426030056
-=======
-    nameFileIdTable: {}
->>>>>>> 4f2e99b (enemy and card sprites added)
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -147,12 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-<<<<<<< HEAD
     nameFileIdTable:
       kalter_wind_0: 8732329186546501483
-=======
-    nameFileIdTable: {}
->>>>>>> 4f2e99b (enemy and card sprites added)
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
