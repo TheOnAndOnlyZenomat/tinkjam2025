@@ -137,6 +137,8 @@ MonoBehaviour:
   hp: 75
   damage: 30
   movementSpeed: 1
+  isWetDuration: 0
+  damageText: {fileID: 7662470768151997580, guid: a70f837dcd8215e4bbb63c59c725c235, type: 3}
 --- !u!61 &-143662118490252013
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -181,7 +183,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.8, y: 1}
   m_EdgeRadius: 0
 --- !u!50 &8796564251399126496
 Rigidbody2D:
