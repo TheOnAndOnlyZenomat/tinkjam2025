@@ -33,6 +33,7 @@ public class Region : MonoBehaviour {
 		}
 
 		foreach(int index in to_remove) {
+			Destroy(this.statuse[index].transform.parent.gameObject);
 			this.statuse.RemoveAt(index);
 		}
 	}
@@ -60,6 +61,7 @@ public class Region : MonoBehaviour {
 	}
 
 	public void ApplyStatus(Status status) {
+		Debug.Log($"status: {status.ToString()}");
 		if (!status.oneshot) {
 			this.statuse.Add(status);
 		} else {
