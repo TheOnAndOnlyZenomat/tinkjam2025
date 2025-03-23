@@ -14,6 +14,8 @@ public class HandManager : MonoBehaviour
     private bool _canDraw = true;
     [SerializeField] public List<Status> _activeCards { get; private set; } = new List<Status>(2);
     public static HandManager Instance { get; private set; }
+
+	private Dictionary<string, int> cardCounter = new Dictionary<string, int>();
     
     private void Awake()
     {
@@ -107,5 +109,20 @@ public class HandManager : MonoBehaviour
 			Destroy(parent);
 		}
 		this._activeCards.Clear();
+	}
+
+	public void UpdateCardCounter(Status status) {
+		int count;
+		if (!this.cardCounter.TryGetValue(status.statusName, out count)) {
+			this.cardCounter.Add(status.statusName, 0);
+		}
+
+		this.cardCounter[status.statusName] += 1;
+
+		if (this.cardCounter[status.statusName] >= status.unlockCount) {
+			if (!this.spawnPool.Contains(status.transform.parent.gameObject.GetComponent<Card>())) {
+				this.spawnPool.Add(status.transform.parent.gameObject.GetComponent<Card>());
+			}
+		}
 	}
 }
