@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Vampire-Mud_0: -7489984802420858024
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

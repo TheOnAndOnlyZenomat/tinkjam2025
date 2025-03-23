@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Goul-Mud_0: 1575681635958556175
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

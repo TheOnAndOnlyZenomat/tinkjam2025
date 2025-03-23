@@ -172,7 +172,9 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Werwolf-Gift_0: 1625681589566102447
+      Werwolf-Gift_1: -3492290126129198836
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
