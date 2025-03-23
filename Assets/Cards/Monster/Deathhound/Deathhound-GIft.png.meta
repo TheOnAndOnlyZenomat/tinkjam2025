@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 8e1c6572d406aa0409dc3be7f293ee39
+guid: f2a7dc5c1c8f2a343bbe130805751eba
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8732329186546501483
-    second: kalter_wind_0
+      213: -8872214917884998936
+    second: Deathhound-GIft_0
+  - first:
+      213: 309004182211613884
+    second: Deathhound-GIft_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +116,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: kalter_wind_0
+      name: Deathhound-GIft_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 96
-        height: 140
+        x: 53
+        y: 92
+        width: 22
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +131,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b6741e911277f2970800000000000000
-      internalID: 8732329186546501483
+      spriteID: 8ea0b880a8f8fd480800000000000000
+      internalID: -8872214917884998936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Deathhound-GIft_1
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 63
+        width: 11
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb455d2aaadc94400800000000000000
+      internalID: 309004182211613884
       vertices: []
       indices: 
       edges: []
@@ -147,8 +172,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      kalter_wind_0: 8732329186546501483
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
