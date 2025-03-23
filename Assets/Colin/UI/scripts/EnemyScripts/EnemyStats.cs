@@ -1,4 +1,5 @@
 using UnityEngine;
+using TMPro;
 
 public class EnemyStats : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class EnemyStats : MonoBehaviour
 	private bool slowReset = true;
 
 	public float isWetDuration = 0;
+
+	public GameObject damageText;
 
 	private void Awake() {
 		this.internalMovementSpeed = this.movementSpeed;
@@ -39,6 +42,8 @@ public class EnemyStats : MonoBehaviour
 
 	public void Damage(int dmg) {
 		this.hp -= dmg;
+		GameObject damageTextInstance = Instantiate(damageText, transform.position, Quaternion.identity);
+		damageTextInstance.transform.GetChild(0).GetComponent<TextMeshPro>().text = dmg.ToString();
 
 		if (hp <= 0) {
 			Destroy(this.gameObject);

@@ -10,10 +10,13 @@ public class HandManager : MonoBehaviour
     [SerializeField] private SplineContainer _splineContainer;
     [SerializeField] private Transform _spawnPoint;
 	[SerializeField] private List<Card> spawnPool;
+	[SerializeField] private int drawDelay = 5;
     private List<GameObject> _handcards = new();
     private bool _canDraw = true;
     [SerializeField] public List<Status> _activeCards { get; private set; } = new List<Status>(2);
     public static HandManager Instance { get; private set; }
+
+	private Dictionary<string, int> cardCounter = new Dictionary<string, int>();
     
     private void Awake()
     {
@@ -43,7 +46,7 @@ public class HandManager : MonoBehaviour
     {
         _canDraw = false;
         DrawCard();
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(this.drawDelay);
         _canDraw = true;
     }
 
@@ -51,8 +54,10 @@ public class HandManager : MonoBehaviour
     {
         if (_handcards.Count >= _maxHandsize) return;
 		System.Random rng = new System.Random();
-		Card toSpawn = this.spawnPool[rng.Next(0, this.spawnPool.Count)];
+		int choice = rng.Next(0, this.spawnPool.Count);
+		Card toSpawn = this.spawnPool[choice];
         GameObject g = Instantiate(toSpawn.gameObject, _spawnPoint.position, _spawnPoint.rotation);
+		g.SetActive(true);
         g.transform.parent = gameObject.transform;
         _handcards.Add(g);
         UpdateCardPosition();
@@ -107,5 +112,28 @@ public class HandManager : MonoBehaviour
 			Destroy(parent);
 		}
 		this._activeCards.Clear();
+	}
+
+	public void UpdateCardCounter(Status status) {
+		int count;
+		if (!this.cardCounter.TryGetValue(status.statusName, out count)) {
+			this.cardCounter.Add(status.statusName, 0);
+		}
+
+		this.cardCounter[status.statusName] += 1;
+
+		if (this.cardCounter[status.statusName] >= status.unlockCount) {
+			GameObject card = Instantiate(status.transform.parent.gameObject, new Vector3(0, 0, -2), Quaternion.identity);
+			bool card_exists = false;
+			foreach (Card alreadyThere in this.spawnPool) {
+				if (alreadyThere.transform.Find("Status").GetComponent<Status>().statusName == status.statusName) {
+					card_exists = true;
+					break;
+				}
+			}
+			if (!card_exists) {
+				this.spawnPool.Add(card.GetComponent<Card>());
+			}
+		}
 	}
 }

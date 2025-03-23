@@ -74,6 +74,7 @@ public class MapManager : MonoBehaviour
 			if (status.IsCreatedBy(activeStatuse)) {
 				this.activeRegion.ApplyStatus(status);
 				HandManager.Instance.PlayActiveCards();
+				HandManager.Instance.UpdateCardCounter(status);
 			} else {
 				Destroy(status.transform.parent.gameObject);
 			}

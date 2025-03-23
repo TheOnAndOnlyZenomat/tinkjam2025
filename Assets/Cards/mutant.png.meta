@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 56bba89804f15894c92bb2a5cc094704
+guid: 0a0acaac750f0c0439e6be12419d9f00
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5053824285758075077
-    second: Deathhound_0
+      213: -3656518042396706561
+    second: mutant_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Deathhound_0
+      name: mutant_0
       rect:
         serializedVersion: 2
-        x: 57
-        y: 63
-        width: 11
-        height: 27
+        x: 17
+        y: 1
+        width: 29
+        height: 58
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b3fc522a6953dd9b0800000000000000
-      internalID: -5053824285758075077
+      spriteID: ff83328a630714dc0800000000000000
+      internalID: -3656518042396706561
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Deathhound_0: -5053824285758075077
+      mutant_0: -3656518042396706561
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

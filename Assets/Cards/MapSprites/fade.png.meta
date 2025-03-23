@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 517f8584936b9e84ea4586b087948e15
+guid: 52a004a2392b3824d871ec34823edc93
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5485827300900042678
-    second: Goul_0
+      213: -7275759930942846948
+    second: fade_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Goul_0
+      name: fade_0
       rect:
         serializedVersion: 2
-        x: 45
-        y: 41
-        width: 33
-        height: 75
+        x: 0
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6b779417dd2912c40800000000000000
-      internalID: 5485827300900042678
+      spriteID: c18812534ee470b90800000000000000
+      internalID: -7275759930942846948
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Goul_0: 5485827300900042678
+      fade_0: -7275759930942846948
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -13,6 +13,8 @@ public class Status : MonoBehaviour {
 
 	[SerializeField]
 	public List<string> createdBy = new List<string>(2);
+	[SerializeField]
+	public int unlockCount = 3;
 
 	public void ApplyToEnemies(GameObject[] enemies) {
 		foreach (GameObject enemy in enemies) {
