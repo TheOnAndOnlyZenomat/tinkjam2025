@@ -8109,16 +8109,16 @@ MonoBehaviour:
     Chance: 23
     _wheight: 0
   - Prefab: {fileID: 8588172248793730972, guid: 35b31198c3968764ead42d0cef5f7a2d, type: 3}
-    Chance: 12
+    Chance: 1
     _wheight: 0
   - Prefab: {fileID: 9132731411025334704, guid: b784237e9ed89d9488e87226ac70f66a, type: 3}
-    Chance: 12
+    Chance: 1
     _wheight: 0
   - Prefab: {fileID: 1667798304493537489, guid: bc5f6e973a3b272498f05fc17c00fd2e, type: 3}
-    Chance: 3
+    Chance: 14
     _wheight: 0
   - Prefab: {fileID: 6091345345777210222, guid: e8c943cb928054e4394dcf1c54e7ac75, type: 3}
-    Chance: 3
+    Chance: 14
     _wheight: 0
   startSpawnTime: 3
   spawnTime: 2
@@ -15872,16 +15872,16 @@ MonoBehaviour:
     Chance: 23
     _wheight: 0
   - Prefab: {fileID: 8588172248793730972, guid: 35b31198c3968764ead42d0cef5f7a2d, type: 3}
-    Chance: 12
+    Chance: 1
     _wheight: 0
   - Prefab: {fileID: 9132731411025334704, guid: b784237e9ed89d9488e87226ac70f66a, type: 3}
-    Chance: 12
+    Chance: 1
     _wheight: 0
   - Prefab: {fileID: 1667798304493537489, guid: bc5f6e973a3b272498f05fc17c00fd2e, type: 3}
-    Chance: 3
+    Chance: 14
     _wheight: 0
   - Prefab: {fileID: 6091345345777210222, guid: e8c943cb928054e4394dcf1c54e7ac75, type: 3}
-    Chance: 3
+    Chance: 14
     _wheight: 0
   startSpawnTime: 3
   spawnTime: 2
@@ -30152,7 +30152,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &861921638
 RectTransform:
   m_ObjectHideFlags: 0
@@ -38643,16 +38643,16 @@ MonoBehaviour:
     Chance: 23
     _wheight: 0
   - Prefab: {fileID: 8588172248793730972, guid: 35b31198c3968764ead42d0cef5f7a2d, type: 3}
-    Chance: 12
+    Chance: 1
     _wheight: 0
   - Prefab: {fileID: 9132731411025334704, guid: b784237e9ed89d9488e87226ac70f66a, type: 3}
-    Chance: 12
+    Chance: 1
     _wheight: 0
   - Prefab: {fileID: 1667798304493537489, guid: bc5f6e973a3b272498f05fc17c00fd2e, type: 3}
-    Chance: 3
+    Chance: 14
     _wheight: 0
   - Prefab: {fileID: 6091345345777210222, guid: e8c943cb928054e4394dcf1c54e7ac75, type: 3}
-    Chance: 3
+    Chance: 14
     _wheight: 0
   startSpawnTime: 3
   spawnTime: 2
