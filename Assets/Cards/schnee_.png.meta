@@ -147,8 +147,12 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
+<<<<<<< HEAD
     nameFileIdTable:
       schnee__0: -3848931067128684241
+=======
+    nameFileIdTable: {}
+>>>>>>> 4f2e99b (enemy and card sprites added)
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
