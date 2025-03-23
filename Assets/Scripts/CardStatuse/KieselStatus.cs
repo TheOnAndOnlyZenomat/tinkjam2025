@@ -6,5 +6,6 @@ public class KieselStatus : Status
 
 	public override void ApplyDamageToEnemy(GameObject enemy) {
 		Debug.Log("Kiesel is applying damage");
+		AudioManager.Instance.PlayKieseln();
 	}
 }

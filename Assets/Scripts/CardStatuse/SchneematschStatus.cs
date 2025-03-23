@@ -6,5 +6,6 @@ public class SchneematschStatus : Status
 
 	public override void ApplyDamageToEnemy(GameObject enemy) {
 		Debug.Log("Schneematsch is applying damage");
+		AudioManager.Instance.PlaySchneematsch();
 	}
 }

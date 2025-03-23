@@ -6,5 +6,6 @@ public class HagelsturmStatus : Status
 
 	public override void ApplyDamageToEnemy(GameObject enemy) {
 		Debug.Log("Hagelsturm is applying damage");
+		AudioManager.Instance.PlayHagelsturm();
 	}
 }

@@ -6,5 +6,6 @@ public class ResetStatus : Status
 
 	public override void ApplyDamageToEnemy(GameObject enemy) {
 		Debug.Log("Reset is applying damage");
+		AudioManager.Instance.PlayReset();
 	}
 }

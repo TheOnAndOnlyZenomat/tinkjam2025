@@ -6,5 +6,6 @@ public class MatschStatus : Status
 
 	public override void ApplyDamageToEnemy(GameObject enemy) {
 		Debug.Log("Matsch is applying damage");
+		AudioManager.Instance.PlayMatsch();
 	}
 }

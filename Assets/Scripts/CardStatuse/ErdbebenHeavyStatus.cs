@@ -6,5 +6,6 @@ public class ErdbebenHeavyStatus : Status
 
 	public override void ApplyDamageToEnemy(GameObject enemy) {
 		Debug.Log("Erdbeben Heavy is applying damage");
+		AudioManager.Instance.PlayErdbebenMitDerStaerke10(); 
 	}
 }

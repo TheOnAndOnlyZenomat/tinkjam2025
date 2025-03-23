@@ -6,5 +6,6 @@ public class ErdbebenStatus : Status
 
 	public override void ApplyDamageToEnemy(GameObject enemy) {
 		Debug.Log("Erdbeben is applying damage");
+		AudioManager.Instance.PlayErdbeben();
 	}
 }

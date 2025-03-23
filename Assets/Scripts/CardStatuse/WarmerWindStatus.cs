@@ -6,5 +6,6 @@ public class WarmerWindStatus : Status
 
 	public override void ApplyDamageToEnemy(GameObject enemy) {
 		Debug.Log("warmer Wind is applying damage");
+		AudioManager.Instance.PlaywarmerWind();
 	}
 }

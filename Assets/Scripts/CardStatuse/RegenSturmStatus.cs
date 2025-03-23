@@ -6,5 +6,6 @@ public class RegenSturmStatus : Status
 
 	public override void ApplyDamageToEnemy(GameObject enemy) {
 		Debug.Log("Regen Sturm is applying damage");
+		AudioManager.Instance.PlayRegensturm();
 	}
 }

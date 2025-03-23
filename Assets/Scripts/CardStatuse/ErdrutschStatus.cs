@@ -6,5 +6,6 @@ public class ErdrutschStatus : Status
 
 	public override void ApplyDamageToEnemy(GameObject enemy) {
 		Debug.Log("Erdrutsch is applying damage");
+		AudioManager.Instance.PlayErdrutsch();
 	}
 }

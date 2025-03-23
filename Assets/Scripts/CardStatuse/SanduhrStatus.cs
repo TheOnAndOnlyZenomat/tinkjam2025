@@ -6,5 +6,6 @@ public class SanduhrStatus : Status
 
 	public override void ApplyDamageToEnemy(GameObject enemy) {
 		Debug.Log("Sanduhr is applying damage");
+		AudioManager.Instance.PlaySanduhr();
 	}
 }

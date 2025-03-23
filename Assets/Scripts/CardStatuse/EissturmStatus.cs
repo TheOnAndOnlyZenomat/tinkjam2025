@@ -6,5 +6,6 @@ public class EissturmStatus : Status
 
 	public override void ApplyDamageToEnemy(GameObject enemy) {
 		Debug.Log("Eissturm is applying damage");
+		AudioManager.Instance.PlayEissturm();
 	}
 }

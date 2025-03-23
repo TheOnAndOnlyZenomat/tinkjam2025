@@ -6,5 +6,6 @@ public class SchneeballStatus : Status
 
 	public override void ApplyDamageToEnemy(GameObject enemy) {
 		Debug.Log("Schneeball is applying damage");
+		AudioManager.Instance.PlaySchneebaelleVomSchuhlhof();
 	}
 }

@@ -6,5 +6,6 @@ public class TornadoStatus : Status
 
 	public override void ApplyDamageToEnemy(GameObject enemy) {
 		Debug.Log("Tornado is applying damage");
+		AudioManager.Instance.PlayTornado();
 	}
 }

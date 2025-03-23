@@ -6,5 +6,6 @@ public class WindhoseStatus : Status
 
 	public override void ApplyDamageToEnemy(GameObject enemy) {
 		Debug.Log("Windhose is applying damage");
+		AudioManager.Instance.PlayWindhose();
 	}
 }

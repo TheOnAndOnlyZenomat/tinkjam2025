@@ -6,5 +6,6 @@ public class KalterWindStatus : Status
 
 	public override void ApplyDamageToEnemy(GameObject enemy) {
 		Debug.Log("kalter Wind is applying damage");
+		AudioManager.Instance.PlaykalterWind();
 	}
 }

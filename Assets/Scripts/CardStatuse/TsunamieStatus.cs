@@ -6,5 +6,6 @@ public class TsunamieStatus : Status
 
 	public override void ApplyDamageToEnemy(GameObject enemy) {
 		Debug.Log("Tsunamie is applying damage");
+		AudioManager.Instance.PlayTsunamie();
 	}
 }

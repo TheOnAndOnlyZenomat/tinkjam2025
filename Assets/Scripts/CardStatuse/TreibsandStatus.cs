@@ -6,5 +6,6 @@ public class TreibsandStatus : Status
 
 	public override void ApplyDamageToEnemy(GameObject enemy) {
 		Debug.Log("Treibsand is applying damage");
+		AudioManager.Instance.PlayTreibsand();
 	}
 }

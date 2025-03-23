@@ -6,5 +6,6 @@ public class SteinschlagStatus : Status
 
 	public override void ApplyDamageToEnemy(GameObject enemy) {
 		Debug.Log("Steinschlag is applying damage");
+		AudioManager.Instance.PlaySteinschlag();
 	}
 }

@@ -6,5 +6,6 @@ public class FlutStatus : Status
 
 	public override void ApplyDamageToEnemy(GameObject enemy) {
 		Debug.Log("Flut is applying damage");
+		AudioManager.Instance.PlayFlut();
 	}
 }
