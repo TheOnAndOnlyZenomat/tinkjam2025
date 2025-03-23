@@ -4,7 +4,7 @@ public class MapManager : MonoBehaviour
 {
 	public static MapManager Instance { get; private set; }
 
-	private Region[] regions;
+	public Region[] regions { get; private set; }
 	private Region activeRegion = null;
 
 	[SerializeField] public GameObject[] cardPool;

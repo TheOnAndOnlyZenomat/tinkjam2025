@@ -5,6 +5,7 @@ public class Status : MonoBehaviour {
 	public virtual string statusName { get; } = "Default";
 
 	public virtual bool oneshot { get; } = true;
+	public virtual bool globalStatus { get; } = false;
 
 	public virtual int ticks {get; set; }
 	public float current_periode {get; private set; } = 0;
@@ -50,9 +51,7 @@ public class Status : MonoBehaviour {
 		bool created = false;
 
 		if (statuse.Length == 1) {
-			for (int i = 0; i < statuse.Length; i++) {
-				if (statuse[i].statusName == this.statusName) created = true;
-			}
+			if (statuse[0].statusName == this.statusName) created = true;
 		} else {
 			if (this.createdBy.Count == 0) {
 				created = false;

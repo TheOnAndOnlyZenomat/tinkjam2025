@@ -65,7 +65,15 @@ public class Region : MonoBehaviour {
 		if (!status.oneshot) {
 			this.statuse.Add(status);
 		} else {
-			status.ApplyToEnemies(this.enemies.ToArray());
+			if (status.globalStatus) {
+				List<GameObject> allEnemies = new List<GameObject>();
+				foreach (Region region in MapManager.Instance.regions) {
+					allEnemies.AddRange(region.enemies);
+				}
+				status.ApplyToEnemies(allEnemies.ToArray());
+			} else {
+				status.ApplyToEnemies(this.enemies.ToArray());
+			}
 		}
 	}
 
