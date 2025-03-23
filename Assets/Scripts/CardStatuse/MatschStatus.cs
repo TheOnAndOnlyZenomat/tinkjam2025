@@ -13,5 +13,6 @@ public class MatschStatus : Status
 		AudioManager.Instance.PlayMatsch();
 
 		enemy.GetComponent<EnemyStats>().Slow(1f, 0f);
+		enemy.GetComponent<EnemyStats>().SetMatsch(1f);
 	}
 }
