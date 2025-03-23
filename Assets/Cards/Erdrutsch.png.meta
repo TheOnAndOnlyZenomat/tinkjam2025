@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 8e1c6572d406aa0409dc3be7f293ee39
+guid: 5e975a032049b644d9ec9db29c403b47
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8732329186546501483
-    second: kalter_wind_0
+      213: -5108074830107207699
+    second: Erdrutsch_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -113,7 +113,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: kalter_wind_0
+      name: Erdrutsch_0
       rect:
         serializedVersion: 2
         x: 0
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b6741e911277f2970800000000000000
-      internalID: 8732329186546501483
+      spriteID: de7985971097c19b0800000000000000
+      internalID: -5108074830107207699
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      kalter_wind_0: 8732329186546501483
+      Erdrutsch_0: -5108074830107207699
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
